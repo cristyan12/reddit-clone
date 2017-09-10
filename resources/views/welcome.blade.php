@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Reddit Clone
                 </div>
 
                 <div class="links">
