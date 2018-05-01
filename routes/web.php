@@ -1,4 +1,5 @@
 <?php
 
-Route::get('/posts', 'PostController@index');
-Route::get('/posts/{id}', 'PostController@show');
+Route::get('/', 'PostsController@index');
+
+Route::get('/posts/{id}', 'PostsController@show');

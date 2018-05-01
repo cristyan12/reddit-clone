@@ -1,13 +1,12 @@
-@extends('partials.app')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<h2 class="display-6">Title of Post</h2>
+		<div class="col-md-12 offset-md-12">
+			<h2>Title</h2>
 			<p>Description</p>
-			<p>Posted 5 hours ago</p>
+			<p>Posted 5 hours ago.</p>
 		</div>
 	</div>
-</div>
+	<hr>
 @endsection
