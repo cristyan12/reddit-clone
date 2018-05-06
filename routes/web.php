@@ -1,5 +1,13 @@
 <?php
 
-Route::get('/', 'PostsController@index');
+Route::get('/posts', [
+	'uses' => 'PostsController@index',
+	'as' => 'posts.index'
+]);
 
-Route::get('/posts/{id}', 'PostsController@show');
+Route::get('/posts/{post}', [
+	'uses' => 'PostsController@show',
+	'as' => 'posts.show'
+]);
+
+

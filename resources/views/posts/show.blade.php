@@ -3,10 +3,13 @@
 @section('content')
 	<div class="row">
 		<div class="col-md-12 offset-md-12">
-			<h2>Title</h2>
-			<p>Description</p>
-			<p>Posted 5 hours ago.</p>
+			<h2>{{ $post->title }}</h2>
+			<p>{{ $post->description}}</p>
+			<p>Posted {{ $post->created_at->diffForHumans() }}</p>
 		</div>
 	</div>
 	<hr>
+	<a href="{{ route('posts.index') }}" class="btn btn-secondary btn-sm">
+		Volver al listado
+	</a>
 @endsection
