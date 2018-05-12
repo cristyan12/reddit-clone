@@ -5,6 +5,7 @@
 		<div class="col-md-12 offset-md-12">
 			<h2>{{ $post->title }}</h2>
 			<p>{{ $post->description}}</p>
+			<p>{{ $post->url }}</p>
 			<p>Posted {{ $post->created_at->diffForHumans() }}</p>
 		</div>
 	</div>
