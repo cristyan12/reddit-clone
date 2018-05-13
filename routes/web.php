@@ -1,18 +1,9 @@
 <?php
 
-Route::get('/posts', [
-	'uses' => 'PostsController@index',
-	'as' => 'posts.index'
-]);
-
-Route::get('posts/create', [
-	'uses' => 'PostsController@create',
-	'as' => 'posts.create'
-]);
-
-Route::name('posts.store')->post('/posts', 'PostsController@store');
-
-Route::get('/posts/{post}', [
-	'uses' => 'PostsController@show',
-	'as' => 'posts.show'
-]);
+Route::get('/', 'PostsController@index')->name('posts.index');
+Route::get('posts/create', 'PostsController@create')->name('posts.create');
+Route::post('/', 'PostsController@store')->name('posts.store');
+Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
+Route::get('/posts/{post}/edit', 'PostsController@edit')->name('posts.edit');
+Route::put('/posts/{post}', 'PostsController@update')->name('posts.update');
+Route::delete('/posts/{post}/delete', 'PostsController@delete')->name('posts.delete');
