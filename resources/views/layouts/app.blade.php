@@ -13,13 +13,13 @@
 		<div class="row">
 			<div class="col-md-12 offset-md-12">
 				<h1>Reddit Clone</h1>
-			</div>
-		</div>
-		<hr>
-		
-		<div class="row">
-			<div class="col-md-12 offset-md-12">
-				@yield('content')	
+				<hr>
+				
+				@include('layouts._errors')
+
+				@include('layouts._messages')
+				
+				@yield('content')
 			</div>
 		</div>
 	</div> {{-- container --}}
