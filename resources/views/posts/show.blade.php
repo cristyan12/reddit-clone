@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('header') @stop
+
 @section('content')
 <div class="row">
 	<div class="col-md-12">
@@ -14,11 +16,12 @@
 				</p>
 				<p>Created {{ $post->created_at->diffForHumans() }}</p>
 			</div>
+			<div class="card-footer">
+				<a href="{{ route('posts.index') }}" class="btn btn-primary btn-sm">
+					Volver al listado
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
-<hr>
-<a href="{{ route('posts.index') }}" class="btn btn-primary btn-sm">
-	Volver al listado
-</a>
 @endsection

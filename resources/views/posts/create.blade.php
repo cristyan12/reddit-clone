@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('header') @stop
 @section('content')
 <div class="card">
 	<div class="card-header"><h4>Create post</h4></div>

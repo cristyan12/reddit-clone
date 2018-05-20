@@ -58,17 +58,15 @@
                     </li>
                 @endguest
             <ul/>
-            {{-- <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form> --}}
         </div>
     </nav>
     <div class="container">
         <div class="row">
             <div class="col-md-12 offset-md-12">
-                <h1>Reddit Clone</h1>
-                <hr>
+                @section('header')
+                    <div class="display-3">Posts List</div>
+                    <hr>
+                @show
                 
                 @include('layouts._errors')
 
