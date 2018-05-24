@@ -63,14 +63,15 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 offset-md-12">
+
+                @include('layouts._messages')
+                
+                @include('layouts._errors')
+                
                 @section('header')
                     <div class="display-3">Posts List</div>
                     <hr>
                 @show
-                
-                @include('layouts._errors')
-
-                @include('layouts._messages')
                 
                 @yield('content')
             </div>

@@ -20,6 +20,8 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->string('url');
 
+            $table->unsignedInteger('user_id');
+
             $table->timestamps();
         });
     }

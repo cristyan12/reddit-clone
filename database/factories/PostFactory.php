@@ -7,5 +7,8 @@ $factory->define(App\Post::class, function (Faker $faker) {
         'title' => $faker->company,
         'description' => $faker->realText,
         'url' => $faker->url,
+        'user_id' => function() {
+        	return factory(App\User::class)->create()->id;
+        },
     ];
 });

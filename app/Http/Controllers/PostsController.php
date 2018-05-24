@@ -28,13 +28,24 @@ class PostsController extends Controller
 
     public function store(CreatePostRequest $request)
     {
-        Post::create($request->only('title', 'description', 'url'));
+        $post = new Post;
+        $post->fill(
+            $request->only('title', 'description', 'url')
+        );
+        $post->user_id = auth()->user()->id;
+        $post->save();
+
+        session()->flash('message', 'Post Created!');
 
         return redirect()->route('posts.index');
     }
 
     public function edit(Post $post)
     {
+         if ($post->user_id != \Auth::user()->id) {
+            return redirect()->route('posts.index');            
+        }
+        
         return view('posts.edit', compact('post'));
     }
 
@@ -42,14 +53,21 @@ class PostsController extends Controller
     {
         $post->update($request->only('title', 'description', 'url'));
 
+        session()->flash('message', 'Post Updated!');
+
         return redirect()->route('posts.show', compact('post'));
     }
 
     public function delete(Post $post)
     {
+        if ($post->user_id != \Auth::user()->id) {
+            return redirect()->route('posts.index');            
+        }
+
         $post->delete();
 
-        return redirect()->route('posts.index')
-            ->with('danger', 'Post deleted successfully');
+        session()->flash('message', 'Post Deleted!');
+
+        return redirect()->route('posts.index');
     }
 }
