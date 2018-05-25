@@ -3,7 +3,7 @@
 @section('content')
 @foreach($posts as $post)
 <div class="row">
-	<div class="col-md-12 ">
+	<div class="col-md-12 mx-auto">
 		<h2>
 			<a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
 			@if($post->user_id == Auth::user()->id)

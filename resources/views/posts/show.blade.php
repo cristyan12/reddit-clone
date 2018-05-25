@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-8 mx-auto">
 		<div class="card">
 			<div class="card-header">
 				<h2>{{ $post->title }}</h2>

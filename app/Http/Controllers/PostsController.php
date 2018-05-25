@@ -13,7 +13,7 @@ class PostsController extends Controller
     {
     	$posts = Post::orderBy('updated_at', 'DESC')->paginate(10);
 
-    	return view('posts.index')->with('posts', $posts);
+    	return view('posts.index', compact('posts'));
     }
 
     public function show(Post $post)
@@ -42,7 +42,7 @@ class PostsController extends Controller
 
     public function edit(Post $post)
     {
-         if ($post->user_id != \Auth::user()->id) {
+        if ($post->user_id != \Auth::user()->id) {
             return redirect()->route('posts.index');            
         }
         
