@@ -6,7 +6,7 @@
 	<div class="col-md-12 mx-auto">
 		<h2>
 			<a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
-			@if($post->user_id == Auth::user()->id)
+			@if(Auth::check() && $post->user_id == Auth::user()->id)
 				<small class="float-right">
 					<a href="{{ route('posts.edit', ['post' => $post->id]) }}" class="btn btn-sm btn-info">Edit</a>
 					{!! Form::open(['route' => ['posts.delete', $post->id], 'method' => 'DELETE']) !!}

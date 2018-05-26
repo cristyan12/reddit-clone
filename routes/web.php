@@ -3,7 +3,7 @@
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/home', 'PostsController@index')->name('home');
 	Route::get('posts/create', 'PostsController@create')->name('posts.create');
 	Route::post('/', 'PostsController@store')->name('posts.store');
 	Route::get('/posts/{post}/edit', 'PostsController@edit')->name('posts.edit');

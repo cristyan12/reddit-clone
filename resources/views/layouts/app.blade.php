@@ -62,7 +62,7 @@
     </nav>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 offset-md-12">
+            <div class="col-md-12 mx-auto">
 
                 @include('layouts._messages')
                 
