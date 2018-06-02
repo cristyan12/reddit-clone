@@ -11,14 +11,16 @@ class PostsController extends Controller
 {
     public function index()
     {
-    	$posts = Post::orderBy('updated_at', 'DESC')->paginate(10);
+    	$posts = Post::with('user')
+            ->orderBy('updated_at', 'DESC')
+            ->paginate(10);
 
     	return view('posts.index', compact('posts'));
     }
 
     public function show(Post $post)
     {
-    	return view('posts.show')->with('post', $post);
+    	return view('posts.show', compact('post'));
     }
 
     public function create()

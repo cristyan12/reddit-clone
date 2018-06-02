@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand display-3" href="{{ url('/') }}">
             Reddit Clone
         </a>
 
@@ -42,7 +42,7 @@
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" role="menu">
-                            <li class="dropdown-item"><a href="#">Dashboard</a></li>
+                           {{--  <li class="dropdown-item"><a href="#">Dashboard</a></li> --}}
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -69,7 +69,7 @@
                 @include('layouts._errors')
                 
                 @section('header')
-                    <div class="display-3">Posts List</div>
+                    <div class="display-3 text-center">Posts List</div>
                     <hr>
                 @show
                 
