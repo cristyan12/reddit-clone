@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
+use App\{Post, Comment};
 use App\Http\Requests\{CreatePostRequest, UpdatePostRequest};
 
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
-    	return view('posts.show', compact('post'));
+        return view('posts.show', compact('post'));
     }
 
     public function create()

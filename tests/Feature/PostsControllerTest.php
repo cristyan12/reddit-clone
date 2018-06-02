@@ -65,6 +65,8 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function a_guest_can_see_a_details_post()
     {
+        $this->withoutExceptionHandling();
+        
         // Arrange
         $post = factory(\App\Post::class)->create([
             'title' => 'Titulo',

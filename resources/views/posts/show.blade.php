@@ -17,6 +17,8 @@
 				</p>
 				
 				<p>Created {{ $post->created_at->diffForHumans() }}</p>
+
+				<hr>
 				
 				<h4>Comentarios:</h4>
 				{!! Form::model($post, ['route' => ['comments.store', $post->id], 'method' => 'POST']) !!}
@@ -33,6 +35,17 @@
 				<a href="{{ route('posts.index') }}" class="btn btn-secondary btn-sm float-right">
 					Volver al listado
 				</a>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header">
+				Comentarios anteriores
+			</div>
+			<div class="card-body">
+				@foreach($post->comments as $comment)
+					<p>{{ $comment->comment }}</p>
+					<hr>
+				@endforeach
 			</div>
 		</div>
 	</div>
