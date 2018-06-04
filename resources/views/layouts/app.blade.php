@@ -10,7 +10,7 @@
     <title>Reddit Clone</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark text-white">
         <a class="navbar-brand display-3" href="{{ url('/') }}">
             Reddit Clone
         </a>
@@ -63,19 +63,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 mx-auto">
-
-                @include('layouts._messages')
-                
-                @include('layouts._errors')
-                
                 @section('header')
                     <div class="display-3 text-center">Posts List</div>
                     <hr>
                 @show
-                
-                @yield('content')
             </div>
         </div>
+
+        @include('layouts._errors')
+    
+        @include('layouts._messages')  
+
+        @yield('content')
     </div> {{-- container --}}
     
     {{-- Optional JavaScript --}}
@@ -85,3 +84,4 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
 </body>
 </html>
+        </div>

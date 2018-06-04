@@ -18,9 +18,11 @@ class PostsController extends Controller
     	return view('posts.index', compact('posts'));
     }
 
-    public function show(Post $post)
+    public function show(Post $post, Comment $comment)
     {
-        return view('posts.show', compact('post'));
+        // $comment = Comment::with('user', 'post')->get();
+
+        return view('posts.show', compact('post', 'comment'));
     }
 
     public function create()

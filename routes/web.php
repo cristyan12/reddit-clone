@@ -1,5 +1,7 @@
 <?php
 
+Route::view('/dashboard', 'dashboard');
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {

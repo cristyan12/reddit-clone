@@ -54,4 +54,25 @@ class WriteCommentTest extends TestCase
         $response->assertStatus(200)
             ->assertSee('Me gusta este post');
     }
+
+    /** @test */
+    public function it_see_all_the_comments_and_its_author()
+    {
+        // Arrange
+        $post = $this->createPost();
+        $this->actingAs($user = $this->defaultUser());
+
+        // Act
+        $this->post(route('comments.store', $post->id), [
+            'comment' => 'Me gusta este post',
+            'post_id' => $post->id,
+            'user_id' => $user->id
+        ]);
+
+        $response = $this->get(route('posts.show', $post->id));
+
+        // Assert 
+        $response->assertStatus(200)
+            ->assertSee($user->name);
+    }
 }
