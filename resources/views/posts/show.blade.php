@@ -15,7 +15,7 @@
 				<p><a href="{{ url($post->url) }}">{{ $post->url }}</a></p>
 				<hr>
 
-				@if(! Auth::check())
+				@guest()
 					Please log in in your account to comment!
 				@else
 					{!! Form::model($post, ['route' => ['comments.store', $post->id], 'method' => 'POST']) !!}
@@ -28,10 +28,12 @@
 						{{ Form::submit('Comment', ['class' => 'btn btn-primary']) }}
 
 					{!! Form::close() !!}
-				@endif
-				<hr>
+				@endguest
+				
+				<br>
+
 				@if(count($post->comments) > 0)
-					<div class="display-4">{{ count($post->comments) }} Comentarios</div>
+					<div class="display-4">Comentarios: </div>
 					<hr>
 				@endif
 

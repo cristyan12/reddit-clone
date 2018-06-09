@@ -29,7 +29,7 @@ class PostsControllerTest extends TestCase
     public function a_registered_user_can_see_all_the_posts()
     {
         // Arrange
-        $this->userSignIn($user = $this->defaultUser());
+        $this->actingAs($user = $this->defaultUser());
 
         $posts = factory(\App\Post::class, 10)->create();
 
@@ -44,10 +44,10 @@ class PostsControllerTest extends TestCase
     }
 
     /** @test */
-    public function a_guest_can_see_all_the_posts_and_titles()
+    public function a_guest_can_see_all_the_posts_and_its_authors()
     {
         // Arrange
-        $this->userSignIn($user = $this->defaultUser());
+        $this->actingAs($user = $this->defaultUser());
 
         $posts = factory(\App\Post::class, 10)->create();
 
@@ -107,14 +107,14 @@ class PostsControllerTest extends TestCase
     /** @test */
     public function a_registered_user_can_create_posts()
     {
-        // $this->withoutExceptionHandling();
-
         // Arrange
-        $user = $this->defaultUser([
-            'name' => 'Cristyan Valera'
-        ]);
+        // $user = $this->defaultUser([
+        //     'name' => 'Cristyan Valera'
+        // ]);
 
-        $this->actingAs($user);
+        $this->actingAs($user = $this->defaultUser([
+            'name' => 'Cristyan Valera'
+        ]));
 
         // Act
         $response = $this->post(route('posts.store'), [
@@ -136,7 +136,7 @@ class PostsControllerTest extends TestCase
         $user = $this->defaultUser();
         $post = $this->createPost(['user_id' => $user->id]);
         
-        $this->userSignIn($user);
+        $this->actingAs($user);
 
         // Act
         $response = $this->put(route('posts.update', ['post' => $post->id]), [
@@ -157,7 +157,7 @@ class PostsControllerTest extends TestCase
     {
         // Arrange
         $post = $this->createPost();
-        $this->userSignIn($user = $this->defaultUser());
+        $this->actingAs($user = $this->defaultUser());
 
         // Act
         $response = $this->put(route('posts.update', ['post' => $post->id]), [
@@ -180,7 +180,7 @@ class PostsControllerTest extends TestCase
         $user = $this->defaultUser();
         $post = $this->createPost(['user_id' => $user->id]);
 
-        $this->userSignIn($user);
+        $this->actingAs($user);
         
         // Act
         $this->delete(route('posts.delete', ['post' => $post->id]));
@@ -200,7 +200,7 @@ class PostsControllerTest extends TestCase
         // Arrange
         $post = $this->createPost();
 
-        $this->userSignIn($user = $this->defaultUser());
+        $this->actingAs($user = $this->defaultUser());
         
         // Act
         $this->delete(route('posts.delete', ['post' => $post->id]));

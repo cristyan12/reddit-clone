@@ -26,9 +26,7 @@ class AdminUserTest extends TestCase
         $response = $this->get('/dashboard');
 
         // Assert
-        $response->assertStatus(200);
-        foreach ($posts as $post) {
-            $response->assertSee('Decir adios!');
-        }
+        $response->assertStatus(200)
+            ->assertSee('Decir adios!');
     }
 }

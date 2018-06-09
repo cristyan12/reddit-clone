@@ -18,9 +18,9 @@ class PostsController extends Controller
     	return view('posts.index', compact('posts'));
     }
 
-    public function show(Post $post, Comment $comment)
+    public function show(Post $post, Comment $comments)
     {
-        return view('posts.show', compact('post', 'comment'));
+       return view('posts.show', compact('post', 'comments'));
     }
 
     public function showByUser()

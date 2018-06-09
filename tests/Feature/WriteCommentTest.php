@@ -34,8 +34,6 @@ class WriteCommentTest extends TestCase
     /** @test */
     public function it_see_all_the_comments()
     {
-        // $this->withoutExceptionHandling();
-        
         // Arrange
         $post = $this->createPost();
 

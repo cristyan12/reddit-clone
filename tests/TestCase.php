@@ -9,11 +9,6 @@ abstract class TestCase extends BaseTestCase
     use CreatesApplication;
 
 	protected $defaultUser;
-    
-    public function userSignIn($user)
-    {
-    	\Auth::loginUsingId($user->id);
-    }
 
 	public function defaultUser(array $attributes = [])
     {
