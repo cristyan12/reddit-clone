@@ -1,7 +1,5 @@
 <?php
 
-Route::view('/dashboard', 'dashboard');
-
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function() {
@@ -13,6 +11,9 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::delete('/posts/{post}/delete', 'PostsController@delete')->name('posts.delete');
 	
 	Route::post('posts/{post}/comment', 'CommentController@store')->name('comments.store');
+
+	// Route::view('/dashboard', 'dashboard')->name('dashboard');
+	Route::get('/dashboard', 'PostsController@showByUser')->name('dashboard');
 });
 
 

@@ -13,7 +13,7 @@ class PostsControllerTest extends TestCase
     public function a_guest_can_see_all_the_posts()
     {
     	// Arrange
-    	$posts = $this->createPost(10);
+    	$posts = factory(\App\Post::class, 10)->create();
 
     	// Act
     	$response = $this->get('/');
@@ -31,7 +31,7 @@ class PostsControllerTest extends TestCase
         // Arrange
         $this->userSignIn($user = $this->defaultUser());
 
-        $posts = $this->createPost(10);
+        $posts = factory(\App\Post::class, 10)->create();
 
         // Act
         $response = $this->get(route('home'));
@@ -49,7 +49,7 @@ class PostsControllerTest extends TestCase
         // Arrange
         $this->userSignIn($user = $this->defaultUser());
 
-        $posts = $this->createPost(10);
+        $posts = factory(\App\Post::class, 10)->create();
 
         // Act
         $response = $this->get('/');
@@ -134,7 +134,7 @@ class PostsControllerTest extends TestCase
     {
         // Arrange
         $user = $this->defaultUser();
-        $post = $this->createPost(null, ['user_id' => $user->id]);
+        $post = $this->createPost(['user_id' => $user->id]);
         
         $this->userSignIn($user);
 
@@ -178,7 +178,7 @@ class PostsControllerTest extends TestCase
     {
         // Arrange
         $user = $this->defaultUser();
-        $post = $this->createPost(null, ['user_id' => $user->id]);
+        $post = $this->createPost(['user_id' => $user->id]);
 
         $this->userSignIn($user);
         

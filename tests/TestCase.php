@@ -20,11 +20,11 @@ abstract class TestCase extends BaseTestCase
         if ($this->defaultUser) {
             return $this->defaultUser;
         }
-        return $this->defaultUser = factory(\App\User::class)->create();
+        return $this->defaultUser = factory(\App\User::class)->create($attributes);
     }
 
-    public function createPost($number = null, array $attributes = [])
+    public function createPost(array $attributes = [])
     {
-        return factory(\App\Post::class, $number)->create($attributes);
+        return factory(\App\Post::class)->create($attributes);
     }
 }

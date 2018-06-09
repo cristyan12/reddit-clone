@@ -20,9 +20,16 @@ class PostsController extends Controller
 
     public function show(Post $post, Comment $comment)
     {
-        // $comment = Comment::with('user', 'post')->get();
-
         return view('posts.show', compact('post', 'comment'));
+    }
+
+    public function showByUser()
+    {
+        $posts = Post::where('user_id', auth()->user()->id)
+            ->orderBy('updated_at', 'DESC')
+            ->get();
+            
+        return view('dashboard', compact('posts'));
     }
 
     public function create()
