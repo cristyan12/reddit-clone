@@ -4,7 +4,7 @@
 @foreach($posts as $post)
 <div class="row">
 	<div class="col-md-12 mx-auto">
-		<span class="display-4">
+		<h4>
 			<a class="" href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
 			@if(Auth::check() && $post->user_id == Auth::user()->id)
 				<small class="float-right">
@@ -16,7 +16,7 @@
 					{!! Form::close() !!}
 				</small>
 			@endif
-		</span>
+		</h4>
 		<p>Posted {{ $post->created_at->diffForHumans() }} by <b>{{ $post->user->name }}</b></p>
 	</div>
 </div>

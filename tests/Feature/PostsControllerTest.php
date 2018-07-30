@@ -108,10 +108,6 @@ class PostsControllerTest extends TestCase
     public function a_registered_user_can_create_posts()
     {
         // Arrange
-        // $user = $this->defaultUser([
-        //     'name' => 'Cristyan Valera'
-        // ]);
-
         $this->actingAs($user = $this->defaultUser([
             'name' => 'Cristyan Valera'
         ]));
